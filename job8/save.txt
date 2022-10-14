@@ -1,0 +1,9 @@
+jour=$(date +%d-%m-%y)
+heure=$(date +%H-%M)
+fichier=$(number_connection-$jour-$heure)
+
+sudo grep -c "session opened" /var/log/auth.log >$fichier  
+tar -cvzf $fichier.tar.gz $fichier
+
+mv $fichier.tar.gz /home/abde/Bureau/job8/Backup
+
